@@ -1,15 +1,9 @@
-// gatsby-node.js
-// Implement the Gatsby API “onCreatePage”. This is
-// called after every page is created.
-exports.onCreatePage = async ({ page, actions }) => {
+exports.onCreatePage = ({ page, actions }) => {
     const { createPage } = actions
-
-    // page.matchPath is a special key that's used for matching pages
-    // only on the client.
-    if (page.path.match(/^\/app/)) {
-        page.matchPath = "/app/*"
-
-        // Update the page.
+    // Make the front page match everything client side.
+    // Normally your paths should be a bit more judicious.
+    if (page.path === `/`) {
+        page.matchPath = `/*`
         createPage(page)
     }
 }
