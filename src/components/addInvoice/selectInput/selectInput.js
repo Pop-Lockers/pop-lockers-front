@@ -6,13 +6,12 @@ import BasicInput from '../basicInput/basicInput';
 
 const SelectInput = ({ value, sectionLabel, selectLabels, componentName }) => (
   <>
-    <Label for={componentName} style={{ fontSize: '2em' }}>
+    <Label for={componentName}>
       {sectionLabel}
     </Label>
     <br />
     <Input
       tag={Field}
-      style={{ fontSize: '2em' }}
       component="select"
       name={componentName}
     >
