@@ -1,12 +1,17 @@
-import React from "react"
-import { Button } from 'reactstrap';
+import React, { Component } from 'react'
+// import { Button } from 'reactstrap';
+import popLockersAPI from '../api/poplockersAPI'
 
-export default () => {
-    return (
-        <div>
-            <p>Hello world!</p>
-            <Button color="success">reactstrap layout</Button>
-        </div>
+export default class Index extends Component {
 
-    )
+async componentDidMount() {
+    const response = await popLockersAPI.get('/user/james')
+    console.log(response.data)
+}
+    render() {
+        return (
+            <div>
+            </div>
+        )
+    }
 }
