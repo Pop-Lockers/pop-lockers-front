@@ -14,25 +14,18 @@ import DriversLicenseNumberInput from './driversLicenseNumberInput/driversLicens
 import LicensePlateStateInput from './licensePlateStateInput/licensePlateStateInput';
 import DriversLicenseState from './driversLicenseState/driversLicenseState';
 
-// address
-// phone number
-// amount
-// date
-// make
-
-// model
-// year
-// color
-// plate #
-// driver #
-// license state
-// plate state
+import formInitialValues from './formInitialValues';
+import formSchema from './formSchema';
 
 const AddInvoice = props => (
   <Formik
-    initialValues={props.initialValues}
-    validationSchema={props.validationSchema}
-    onSubmit={props.onSubmit}
+    initialValues={formInitialValues}
+    validationSchema={formSchema}
+    onSubmit={(values, { setSubmitting, resetForm }) => {
+      console.log(values);
+      resetForm(formInitialValues);
+      setSubmitting(false);
+    }}
   >
     {({ values, errors, touched, isSubmitting }) => (
       <Form>
