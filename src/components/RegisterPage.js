@@ -2,32 +2,32 @@ import React, { Component } from 'react'
 import { Form, FormGroup, Button, Label, Input} from 'reactstrap'
 
 export default class Register extends Component {
-
+    
     render() {
         return (
             <Form>
                 <FormGroup>
-                    <Label for="username">Username</Label>
+                    <Label for="username">New Username</Label>
                     <Input type="text"></Input>
                 </FormGroup>
                 <FormGroup>
-                    <Label for="password">Password</Label>
+                    <Label for="password">New Password</Label>
                     <Input type="password"></Input>
                 </FormGroup>
                 <FormGroup>
-                    <Label for="first_name">First Name</Label>
+                    <Label for="first_name">Enter First Name</Label>
                     <Input type="text" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="last_name">Last Name</Label>
+                    <Label for="last_name">Enter Last Name</Label>
                     <Input type="text" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="email">Email</Label>
+                    <Label for="email">Enter Email</Label>
                     <Input type="email" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="phone_number">Phone Number</Label>
+                    <Label for="phone_number">Enter Phone Number</Label>
                     <Input type="number" />
                 </FormGroup>
                 <FormGroup>

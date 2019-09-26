@@ -22,6 +22,11 @@ export default () => {
                             Register
                         </Link>
                     </NavItem>
+                    <NavItem>
+                        <Link to="/login">
+                            Login
+                        </Link>
+                    </NavItem>
                 </Nav>
         </Navbar>
     )
