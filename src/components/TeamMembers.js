@@ -56,7 +56,7 @@ class TeamMembers extends React.Component {
         <Container>
           <Row>
             <Col>
-              <h1>This isn't an ID!</h1>
+              <h1>This isn't a Team!</h1>
             </Col>
           </Row>
         </Container>
