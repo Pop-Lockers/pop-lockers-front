@@ -1,11 +1,12 @@
 import React from 'react'
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
 
 class TeamMembers extends React.Component { 
   
   state = {
     businessName: '',
-    location: ''
+    location: '',
+    users: []
   }
 
   componentDidMount() {
@@ -18,18 +19,32 @@ class TeamMembers extends React.Component {
         .then(teamObj => {
           this.setState({
             businessName: teamObj.business_name,
-            location: teamObj.location
+            location: teamObj.location,
+            users: teamObj.users
           })
         })
   }
 
   render() {
+
+    const userList = this.state.users.map(user => {
+      return (
+        <ListGroup key={user.id}>
+          <ListGroupItem>{user.first_name} {user.last_name}</ListGroupItem>
+          <ListGroupItem>{user.email}</ListGroupItem>
+          <ListGroupItem>{user.phone_number}</ListGroupItem>
+          <ListGroupItem>{user.admin ? "Admin" : "Not Admin"}</ListGroupItem>
+        </ListGroup>
+      )
+    })
+
     return (
         <Container>
           <Row>
             <Col>
               <h2>Welcome, {this.state.businessName}</h2>
               <h5>You're located at: {this.state.location}</h5>
+                {userList}
             </Col>
           </Row>
         </Container>
