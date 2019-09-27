@@ -1,16 +1,17 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
-import Navbar from '../components/Navbar'
+import Layout from '../components/Layout'
 
 import Routes from "../components/Routes"
 
 export default () => {
     return (
         <BrowserRouter>
-            <Navbar />
-            <div>
-                <Routes />
-            </div>
+            <Layout>
+                <div>
+                    <Routes />
+                </div>
+            </Layout>
         </BrowserRouter>  
     )
 }
