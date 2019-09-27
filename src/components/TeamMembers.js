@@ -30,25 +30,38 @@ class TeamMembers extends React.Component {
     const userList = this.state.users.map(user => {
       return (
         <ListGroup key={user.id}>
-          <ListGroupItem>{user.first_name} {user.last_name}</ListGroupItem>
-          <ListGroupItem>{user.email}</ListGroupItem>
-          <ListGroupItem>{user.phone_number}</ListGroupItem>
+          <ListGroupItem color="success">Username: {user.username}</ListGroupItem>
+          <ListGroupItem color="info">Name: {user.first_name} {user.last_name}</ListGroupItem>
+          <ListGroupItem color="warning">Email: {user.email}</ListGroupItem>
+          <ListGroupItem color="danger">Phone: {user.phone_number}</ListGroupItem>
           <ListGroupItem>{user.admin ? "Admin" : "Not Admin"}</ListGroupItem>
         </ListGroup>
       )
     })
 
-    return (
+    if (this.state.businessName) {
+      return (
+          <Container>
+            <Row>
+              <Col>
+                <h2>Welcome, {this.state.businessName}</h2>
+                <h5>You're located at: {this.state.location}</h5>
+                  {userList}
+              </Col>
+            </Row>
+          </Container>
+      )
+    } else {
+      return (
         <Container>
           <Row>
             <Col>
-              <h2>Welcome, {this.state.businessName}</h2>
-              <h5>You're located at: {this.state.location}</h5>
-                {userList}
+              <h1>This isn't an ID!</h1>
             </Col>
           </Row>
         </Container>
-    )
+      )
+    }
   }
 }
 
