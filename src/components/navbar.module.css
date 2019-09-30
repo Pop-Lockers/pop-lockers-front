@@ -1,0 +1,12 @@
+.navbar {
+  color: white;
+  display: flex;
+}
+.navLink {
+  margin-right: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+

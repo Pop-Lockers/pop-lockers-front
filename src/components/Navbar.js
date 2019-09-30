@@ -6,23 +6,24 @@ import {
     Nav,
     NavItem
     } from 'reactstrap';
+import navStyles from './navbar.module.css'
 
 export default () => {
     return (
-        <Navbar color="dark" light>
+        <Navbar className={navStyles.navbar}  color="dark" light>
             <NavbarBrand>PopLockers</NavbarBrand>
-                <Nav className="ml-auto">
-                    <NavItem>
+                <Nav >
+                    <NavItem className={navStyles.navLink}>
                         <Link to="/">
                             Home
                         </Link>
                     </NavItem>
-                    <NavItem>
+                    <NavItem className={navStyles.navLink}>
                         <Link to="/register">
                             Register
                         </Link>
                     </NavItem>
-                    <NavItem>
+                    <NavItem className={navStyles.navLink}>
                         <Link to="/login">
                             Login
                         </Link>

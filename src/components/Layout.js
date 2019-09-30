@@ -1,10 +1,10 @@
 import React from 'react'
 import NavBar from './Navbar'
 import Footer from './Footer'
-
+import layoutStyles from './layout.module.css'
 const Layout = (props) => {
     return (
-        <div>
+        <div className={layoutStyles.layout}>
             <NavBar />
                 {props.children}
             <Footer />
