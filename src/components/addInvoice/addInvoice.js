@@ -6,7 +6,6 @@ import axios from 'axios';
 import AddressInput from './addressInput/addressInput';
 import PhoneNumberInput from './phoneNumberInput/phoneNumberInput';
 import AmountInput from './amountInput/amountInput';
-import DateInput from './dateInput/dateInput';
 import MakeInput from './makeInput/makeInput';
 import ModelInput from './modelInput/modelInput';
 import YearInput from './yearInput/yearInput';
@@ -23,8 +22,46 @@ const AddInvoice = props => (
   <Formik
     initialValues={formInitialValues}
     validationSchema={formSchema}
-    onSubmit={(values, { setSubmitting, resetForm }) => {
-      console.log(values);
+    onSubmit={async (values, { setSubmitting, resetForm }) => {
+      const {
+        address,
+        phoneNumber,
+        amount,
+        make,
+        model,
+        year,
+        color,
+        licensePlateNumber,
+        driversLicenseNumber,
+        driversLicenseState,
+        licensePlateState
+      } = values
+      const convertedValues = {
+        address,
+        phone_number: phoneNumber,
+        amount,
+        make,
+        model,
+        year,
+        color,
+        license_plate_number: licensePlateNumber,
+        drivers_license_number: driversLicenseNumber,
+        drivers_license_state: driversLicenseState,
+        license_plate_state: licensePlateState,
+        user_id: 1
+      }
+      const axiosConfig = {
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*",
+        }
+      };
+      try {
+        const data = await axios.post('http://localhost:5000/invoice/4', convertedValues, axiosConfig)
+        console.log(data)
+      } catch (e) {
+        console.log(e)
+      }
       resetForm(formInitialValues);
       setSubmitting(false);
     }}
@@ -45,8 +82,6 @@ const AddInvoice = props => (
             <PhoneNumberInput error={errors.phoneNumber} touched={touched.phoneNumber} />
             <br />
             <AmountInput value={values.amount} touched={touched.amount} />
-            <br />
-            <DateInput value={values.date} touched={touched.date} />
             <br />
             <MakeInput value={values.make} touched={touched.make} />
             <br/>
