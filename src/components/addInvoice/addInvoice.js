@@ -46,14 +46,13 @@ const AddInvoice = props => (
         color,
         license_plate_number: licensePlateNumber,
         drivers_license_number: driversLicenseNumber,
-        drivers_license_state: driversLicenseState,
-        license_plate_state: licensePlateState,
+        license_state: driversLicenseState,
+        plate_state: licensePlateState,
         user_id: 1
       }
       const axiosConfig = {
         headers: {
-            'Content-Type': 'application/json;charset=UTF-8',
-            "Access-Control-Allow-Origin": "*",
+            'Content-Type': 'application/json'
         }
       };
       try {
