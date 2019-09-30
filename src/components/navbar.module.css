@@ -9,4 +9,11 @@
   font-size: 18px;
 }
 
+a {
+  color: white;
+}
 
+a:hover {
+  color: rgb(86, 236, 161);
+  text-decoration: none;
+}
