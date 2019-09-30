@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
+import { Container, Row, Col, Table } from 'reactstrap';
 
 class TeamMembers extends React.Component { 
   
@@ -29,13 +29,13 @@ class TeamMembers extends React.Component {
 
     const userList = this.state.users.map(user => {
       return (
-        <ListGroup key={user.id}>
-          <ListGroupItem color="success">Username: {user.username}</ListGroupItem>
-          <ListGroupItem color="info">Name: {user.first_name} {user.last_name}</ListGroupItem>
-          <ListGroupItem color="warning">Email: {user.email}</ListGroupItem>
-          <ListGroupItem color="danger">Phone: {user.phone_number}</ListGroupItem>
-          <ListGroupItem>{user.admin ? "Admin" : "Not Admin"}</ListGroupItem>
-        </ListGroup>
+        <tr key={user.id}>
+          <td>{user.username}</td>
+          <td>{user.first_name} {user.last_name}</td>
+          <td>{user.email}</td>
+          <td>{user.phone_number}</td>
+          <td>{user.admin ? "Admin" : "Not Admin"}</td>
+        </tr>
       )
     })
 
@@ -46,7 +46,20 @@ class TeamMembers extends React.Component {
               <Col>
                 <h2>Welcome, {this.state.businessName}</h2>
                 <h5>You're located at: {this.state.location}</h5>
-                  {userList}
+                <Table striped responsive>
+                  <thead>
+                    <tr>
+                      <th>Username</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+                      <th>Admin Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {userList}
+                  </tbody>
+                </Table>
               </Col>
             </Row>
           </Container>
