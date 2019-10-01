@@ -17,47 +17,20 @@ import DriversLicenseState from './driversLicenseState/driversLicenseState';
 
 import formInitialValues from './formInitialValues';
 import formSchema from './formSchema';
+import getValuesForPost from './getValuesForPost'
+import axiosConfig from './axiosConfig';
+
+// 1) move onSubmit into another place
+// 2) remove test handling stuff in initial values file
 
 const AddInvoice = props => (
   <Formik
     initialValues={formInitialValues}
     validationSchema={formSchema}
     onSubmit={async (values, { setSubmitting, resetForm }) => {
-      const {
-        address,
-        phoneNumber,
-        amount,
-        make,
-        model,
-        year,
-        color,
-        licensePlateNumber,
-        driversLicenseNumber,
-        driversLicenseState,
-        licensePlateState
-      } = values
-      const convertedValues = {
-        address,
-        phone_number: phoneNumber,
-        amount,
-        make,
-        model,
-        year,
-        color,
-        license_plate_number: licensePlateNumber,
-        drivers_license_number: driversLicenseNumber,
-        license_state: driversLicenseState,
-        plate_state: licensePlateState,
-        user_id: 1
-      }
-      const axiosConfig = {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-      };
+      const valuesForPost = getValuesForPost(values);
       try {
-        const data = await axios.post('http://localhost:5000/invoice/4', convertedValues, axiosConfig)
-        console.log(data)
+        await axios.post('http://localhost:5000/invoice/0', valuesForPost, axiosConfig)
       } catch (e) {
         console.log(e)
       }
