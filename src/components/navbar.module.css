@@ -1,0 +1,19 @@
+.navbar {
+  color: white;
+  display: flex;
+}
+.navLink {
+  margin-right: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: rgb(86, 236, 161);
+  text-decoration: none;
+}

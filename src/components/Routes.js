@@ -9,6 +9,7 @@ const Routes = props => {
         <Router>
             <TeamPage path='/' />
             <TeamMembers path='team/:business_name' />
+            
         </Router>
     )
 }

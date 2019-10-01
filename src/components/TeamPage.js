@@ -1,13 +1,12 @@
 import React from 'react'
-import { Button } from 'reactstrap'
-
+import { Jumbotron } from 'reactstrap'
+import teamPageStyles from './teamPage.module.css'
 const TeamPage = props => {
   return (  
-    <div>
-      <p>Hello world!</p>
-      <Button color="success">reactstrap layout</Button>
-      
-    </div>
+    <Jumbotron className={teamPageStyles.jumbotron}>
+      <h1>Welcome to PopLockers</h1>
+      <p className="lead">Login or Sign Up to get started!</p>
+    </Jumbotron>
   )
 }
 
