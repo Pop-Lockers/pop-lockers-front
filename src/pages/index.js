@@ -1,12 +1,13 @@
 import React from "react"
-import { Button } from 'reactstrap';
+import Layout from '../components/Layout'
+import Routes from "../components/Routes"
 
 export default () => {
     return (
+      <Layout>
         <div>
-            <p>Hello world!</p>
-            <Button color="success">reactstrap layout</Button>
+            <Routes />
         </div>
-
+      </Layout>
     )
 }
