@@ -11,13 +11,8 @@ import navStyles from './navbar.module.css'
 export default () => {
     return (
         <Navbar className={navStyles.navbar}  color="dark" light>
-            <NavbarBrand>PopLockers</NavbarBrand>
+            <NavbarBrand><Link to="/">PopLockers</Link></NavbarBrand>
                 <Nav >
-                    <NavItem className={navStyles.navLink}>
-                        <Link to="/">
-                            Home
-                        </Link>
-                    </NavItem>
                     <NavItem className={navStyles.navLink}>
                         <Link to="/register">
                             Register
