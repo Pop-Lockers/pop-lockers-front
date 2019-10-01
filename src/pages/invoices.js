@@ -31,28 +31,28 @@ export default class Invoices extends Component{
         <div>
             <h1>Invoices</h1>
           
-            <Table responsive>
-            <thead>
-          <tr>
-            <th>Address</th>
-            <th>Phone Number</th>
-            <th>Amount</th>
-            <th>Date</th>
-            <th>Make</th>
-            <th>Model</th>
-            <th>Year</th>
-            <th>Color</th>
-            <th>Driver's License State</th>
-            <th>Driver's License Number</th>
-            <th>License Plate State</th>
-            <th>License Plate Number</th>
-            <th>User Id</th>
-          </tr>
-        </thead>
-        <tbody>
-            {this.state.invoices.map((invoice, index) => (<Invoice invoice={invoice} key={index} />))}
-            
-        </tbody>
+              <Table responsive>
+                <thead>
+                  <tr>
+                    <th>Address</th>
+                    <th>Phone Number</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                    <th>Color</th>
+                    <th>Driver's License State</th>
+                    <th>Driver's License Number</th>
+                    <th>License Plate State</th>
+                    <th>License Plate Number</th>
+                    <th>User Id</th>
+                  </tr>
+                </thead>
+              <tbody>
+              {this.state.invoices.map((invoice, index) => (<Invoice invoice={invoice} key={index} />))}
+              
+              </tbody>
             </Table>
         </div>
     )
