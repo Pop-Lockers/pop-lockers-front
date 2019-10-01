@@ -9,8 +9,6 @@ module.exports = {
   siteMetadata: {
     title: "PopLockers"
     
-  },
-  plugins: [
-    'gatsby-plugin-sass'
-  ]
+  }
+  
 }
