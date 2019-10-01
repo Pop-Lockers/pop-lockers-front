@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Form, FormGroup, Button, Label, Input} from 'reactstrap'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
 import popLockersAPI from '../api/poplockersAPI'
 import loginStyles from '../styles/login.module.css'
 export default class Login extends Component {
