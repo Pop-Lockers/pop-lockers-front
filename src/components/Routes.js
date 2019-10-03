@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router } from "@reach/router"
 
-import TeamPage from './TeamPage'
+import TeamPage from './TeamPage/TeamPage'
 import TeamMembers from './TeamMembers'
 
 const Routes = props => {

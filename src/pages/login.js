@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import { Redirect } from '@reach/router'
 import {Form, FormGroup, Button, Label, Input} from 'reactstrap'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
 import popLockersAPI from '../api/poplockersAPI'
 import loginStyles from '../styles/login.module.css'
 export default class Login extends Component {
@@ -30,23 +31,39 @@ export default class Login extends Component {
         })
         console.log(response.data.access_token)
         localStorage.setItem('token', response.data.access_token)
+        localStorage.setItem('user_id', response.data.user_id)
+    }
+
+    renderFormOrRedirect = () => {
+        if (localStorage.getItem('token') && localStorage.getItem('user_id')) {
+            return (
+                <Redirect from="/login" to="/add-invoice" noThrow/>
+            )
+        } else {
+            return (
+                <Layout>
+                    <Form className={loginStyles.form} onSubmit={this.handleFormSubmit}>
+                        <FormGroup>
+                            <Label for="enterUsername">Enter Username</Label>
+                            <Input onChange={this.handleInputChange} name="username" value={this.state.username} type="text"  />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="enterPassword">Enter Password</Label>
+                            <Input onChange={this.handleInputChange} name="password" value={this.state.password} type="password" />
+                        </FormGroup>
+                        <Button type="submit">Submit</Button>
+                    </Form>
+                </Layout>
+            )
+        }
+        
     }
 
     render() {
         return (
-            <Layout>
-                <Form className={loginStyles.form} onSubmit={this.handleFormSubmit}>
-                    <FormGroup>
-                        <Label for="enterUsername">Enter Username</Label>
-                        <Input onChange={this.handleInputChange} name="username" value={this.state.username} type="text"  />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="enterPassword">Enter Password</Label>
-                        <Input onChange={this.handleInputChange} name="password" value={this.state.password} type="password" />
-                    </FormGroup>
-                    <Button type="submit">Submit</Button>
-                </Form>
-            </Layout>
+            <Fragment>
+                {this.renderFormOrRedirect()}
+            </Fragment>
         )
     }
 }
