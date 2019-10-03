@@ -20,8 +20,8 @@ import formSchema from './formSchema';
 import getValuesForPost from './getValuesForPost'
 import axiosConfig from './axiosConfig';
 
-// 1) move onSubmit into another place
-// 2) remove test handling stuff in initial values file
+// 1) use user_id for invoice creation
+// 2) get skype call to work
 
 const AddInvoice = props => (
   <Formik
