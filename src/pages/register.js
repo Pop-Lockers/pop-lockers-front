@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, FormGroup, Button, Label, Input} from 'reactstrap'
-import Layout from '../components/Layout'
+import Layout from '../components/Layout/Layout'
 import popLockersAPI from '../api/poplockersAPI'
 import registerStyles from '../styles/register.module.css'
 import poplockersAPI from '../api/poplockersAPI'
