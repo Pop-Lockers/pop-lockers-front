@@ -1,7 +1,8 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import { FormGroup, Col, Button, Modal, ModalBody } from 'reactstrap';
-import axios from 'axios';
+
+import popLockersAPI from '../../api/poplockersAPI'
 
 import AddressInput from './AddressInput/AddressInput';
 import PhoneNumberInput from './PhoneNumberInput/PhoneNumberInput';
@@ -29,10 +30,10 @@ const AddInvoice = props => (
       <Formik
         initialValues={formInitialValues}
         validationSchema={formSchema}
-        onSubmit={async (values, { setSubmitting, resetForm }) => {
+        onSubmit={async (values, { setSubmitting, resetForm }) => { 
           const valuesForPost = getValuesForPost(values);
           try {
-            await axios.post('http://localhost:5000/invoice/0', valuesForPost, axiosConfig)
+            await popLockersAPI.post('invoice/0', valuesForPost, axiosConfig)
           } catch (e) {
             console.log(e)
           }
