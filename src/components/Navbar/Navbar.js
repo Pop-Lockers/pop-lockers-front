@@ -25,13 +25,13 @@ const Menu = ({token, user_id, setUser, setToken}) => {
         if (token && user_id) {
             return (
                 <>
-                    <NavItem className={navStyles.navLink}>
-                        <Link to="/add-invoice">
+                    <NavItem className={navStyles.navLink} >
+                        <Link activeClassName={navStyles.activeLink} to="/add-invoice">
                             Add Invoice
                         </Link>
                     </NavItem>
                     <NavItem className={navStyles.navLink}>
-                        <Link to="/invoices">
+                        <Link activeClassName={navStyles.activeLink} to="/invoices">
                             Invoices
                         </Link>
                     </NavItem>
@@ -44,12 +44,12 @@ const Menu = ({token, user_id, setUser, setToken}) => {
             return (
                 <>
                     <NavItem className={navStyles.navLink}>
-                    <Link to="/register">
+                    <Link activeClassName={navStyles.activeLink} to="/register">
                         Register
                     </Link>
                     </NavItem>
                     <NavItem className={navStyles.navLink}>
-                    <Link to="/login">
+                    <Link activeClassName={navStyles.activeLink} to="/login">
                         Login
                     </Link>
                     </NavItem>

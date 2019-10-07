@@ -4,6 +4,8 @@ import Layout from '../components/Layout/Layout'
 import popLockersAPI from '../api/poplockersAPI'
 import registerStyles from '../styles/register.module.css'
 import poplockersAPI from '../api/poplockersAPI'
+import { navigate } from "@reach/router"
+
 export default class Register extends Component {
 
     state = {
@@ -59,6 +61,8 @@ async componentDidMount() {
         }
         )
         console.log(response.data)
+        navigate("/login")
+        
     }
 
     renderTeamOptions = () => {
