@@ -17,3 +17,8 @@ a:hover {
   color: rgb(86, 236, 161);
   text-decoration: none;
 }
+
+.activeLink {
+  text-decoration: underline;
+  color: rgba(149, 245, 149, 0.835);
+}
