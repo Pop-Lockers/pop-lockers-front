@@ -2,7 +2,7 @@ import React from 'react';
 import { Field } from 'formik';
 import { Input, Label } from 'reactstrap';
 import Select from './select';
-import BasicInput from '../basicInput/basicInput';
+import BasicInput from '../BasicInput/BasicInput';
 
 const SelectInput = ({ value, sectionLabel, selectLabels, componentName }) => (
   <>

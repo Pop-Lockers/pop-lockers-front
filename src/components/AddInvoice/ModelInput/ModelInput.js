@@ -1,5 +1,5 @@
 import React from 'react';
-import BasicInput from '../basicInput/basicInput';
+import BasicInput from '../BasicInput/BasicInput';
 
 const ModelInput = props => (
   <BasicInput

@@ -3,17 +3,17 @@ import { Formik, Form } from 'formik';
 import { FormGroup, Col, Button, Modal, ModalBody } from 'reactstrap';
 import axios from 'axios';
 
-import AddressInput from './addressInput/addressInput';
-import PhoneNumberInput from './phoneNumberInput/phoneNumberInput';
-import AmountInput from './amountInput/amountInput';
-import MakeInput from './makeInput/makeInput';
-import ModelInput from './modelInput/modelInput';
-import YearInput from './yearInput/yearInput';
-import ColorInput from './colorInput/colorInput';
-import LicensePlateNumberInput from './licensePlateNumberInput/licensePlateNumberInput';
-import DriversLicenseNumberInput from './driversLicenseNumberInput/driversLicenseNumberInput';
-import LicensePlateStateInput from './licensePlateStateInput/licensePlateStateInput';
-import DriversLicenseState from './driversLicenseState/driversLicenseState';
+import AddressInput from './AddressInput/AddressInput';
+import PhoneNumberInput from './PhoneNumberInput/PhoneNumberInput';
+import AmountInput from './AmountInput/AmountInput';
+import MakeInput from './MakeInput/MakeInput';
+import ModelInput from './ModelInput/ModelInput';
+import YearInput from './YearInput/YearInput';
+import ColorInput from './ColorInput/ColorInput';
+import LicensePlateNumberInput from './LicensePlateNumberInput/LicensePlateNumberInput';
+import DriversLicenseNumberInput from './DriversLicenseNumberInput/DriversLicenseNumberInput';
+import LicensePlateStateInput from './LicensePlateStateInput/LicensePlateStateInput';
+import DriversLicenseState from './DriversLicenseState/DriversLicenseState';
 
 import formInitialValues from './formInitialValues';
 import formSchema from './formSchema';
@@ -21,8 +21,8 @@ import getValuesForPost from './getValuesForPost'
 import axiosConfig from './axiosConfig';
 import Layout from '../Layout/Layout'
 
-// 1) use user_id for invoice creation
-// 2) get skype call to work
+// 1) submits with localStorage user_id
+// 2) push backend to my server
 
 const AddInvoice = props => (
   <Layout>
