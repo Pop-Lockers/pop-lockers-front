@@ -31,6 +31,11 @@ const Menu = ({token, user_id, setUser, setToken}) => {
                         </Link>
                     </NavItem>
                     <NavItem className={navStyles.navLink}>
+                        <Link to="/invoices">
+                            Invoices
+                        </Link>
+                    </NavItem>
+                    <NavItem className={navStyles.navLink}>
                         <Button color="danger" onClick={logOut}>Log Out</Button>
                     </NavItem>
                 </>
