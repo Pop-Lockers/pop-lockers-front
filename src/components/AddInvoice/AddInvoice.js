@@ -22,9 +22,6 @@ import getValuesForPost from './getValuesForPost'
 import axiosConfig from './axiosConfig';
 import Layout from '../Layout/Layout'
 
-// 1) submits with localStorage user_id
-// 2) push backend to my server
-
 const AddInvoice = props => (
   <Layout>
       <Formik
