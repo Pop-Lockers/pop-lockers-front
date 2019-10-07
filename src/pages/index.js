@@ -5,9 +5,8 @@ import Routes from "../components/Routes"
 export default () => {
     return (
       <Layout>
-        <div>
-            <Routes />
-        </div>
+
+        <Routes />
       </Layout>
     )
 }

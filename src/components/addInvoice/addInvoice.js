@@ -19,13 +19,11 @@ import formInitialValues from './formInitialValues';
 import formSchema from './formSchema';
 import getValuesForPost from './getValuesForPost'
 import axiosConfig from './axiosConfig';
-import Layout from '../Layout/Layout'
 
 // 1) move onSubmit into another place
 // 2) remove test handling stuff in initial values file
 
 const AddInvoice = props => (
-  <Layout>
       <Formik
         initialValues={formInitialValues}
         validationSchema={formSchema}
@@ -87,7 +85,6 @@ const AddInvoice = props => (
           </Form>
         )}
       </Formik>
-  </Layout>
 );
 
 export default AddInvoice;

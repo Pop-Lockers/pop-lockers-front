@@ -4,7 +4,8 @@ import {Form, FormGroup, Button, Label, Input} from 'reactstrap'
 import Layout from '../components/Layout/Layout'
 import popLockersAPI from '../api/poplockersAPI'
 import loginStyles from '../styles/login.module.css'
-export default class Login extends Component {
+import { LoginContext } from '../components/loginContext/loginContext'
+class Login extends Component {
 
     state = {
         username: '',
@@ -30,18 +31,22 @@ export default class Login extends Component {
             }
         })
         console.log(response.data.access_token)
-        localStorage.setItem('token', response.data.access_token)
         localStorage.setItem('user_id', response.data.user_id)
+        localStorage.setItem('token', response.data.access_token)
+        this.props.setUser(response.data.user_id)
+        this.props.setToken(response.data.access_token)
+        
     }
 
     renderFormOrRedirect = () => {
-        if (localStorage.getItem('token') && localStorage.getItem('user_id')) {
+        const { token, user_id } = this.props
+        if (token && user_id) {
             return (
+                
                 <Redirect from="/login" to="/add-invoice" noThrow/>
             )
         } else {
             return (
-                <Layout>
                     <Form className={loginStyles.form} onSubmit={this.handleFormSubmit}>
                         <FormGroup>
                             <Label for="enterUsername">Enter Username</Label>
@@ -53,7 +58,6 @@ export default class Login extends Component {
                         </FormGroup>
                         <Button type="submit">Submit</Button>
                     </Form>
-                </Layout>
             )
         }
         
@@ -61,9 +65,25 @@ export default class Login extends Component {
 
     render() {
         return (
-            <Fragment>
+            <>
                 {this.renderFormOrRedirect()}
-            </Fragment>
+            </>
+
         )
     }
 }
+
+const LoginWithConsumer = () => {
+    return (
+        <Layout>
+            <LoginContext.Consumer>
+                {(value) => {
+                    return <Login {...value} />
+                }}
+                
+            </LoginContext.Consumer>
+        </Layout>
+    )
+}
+
+export default LoginWithConsumer
