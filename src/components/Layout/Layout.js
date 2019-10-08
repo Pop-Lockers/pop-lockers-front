@@ -1,11 +1,13 @@
-import React, { useState } from "react"
-import NavBar from "../Navbar/Navbar"
-import Footer from "../Footer/Footer"
-import layoutStyles from "./layout.module.css"
-import { LoginContext } from "../loginContext/loginContext"
+import React, { useState } from 'react'
+import NavBar from '../Navbar/Navbar'
+import Footer from '../Footer/Footer'
+import layoutStyles from './layout.module.css'
+import { LoginContext } from '../loginContext/loginContext'
 const Layout = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token"))
-  const [user_id, setUser] = useState(localStorage.getItem("user_id"))
+  if (typeof window !== `undefined`) {
+    const [token, setToken] = useState(localStorage.getItem('token'))
+    const [user_id, setUser] = useState(localStorage.getItem('user_id'))
+  }
 
   return (
     <div className={layoutStyles.layout}>
@@ -14,7 +16,7 @@ const Layout = ({ children }) => {
           token,
           user_id,
           setToken,
-          setUser,
+          setUser
         }}
       >
         <NavBar />
