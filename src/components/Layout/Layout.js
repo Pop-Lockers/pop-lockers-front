@@ -5,8 +5,8 @@ import layoutStyles from './layout.module.css'
 import { LoginContext } from '../loginContext/loginContext'
 const Layout = ({ children }) => {
   if (typeof window !== `undefined`) {
-    const [token, setToken] = useState(localStorage.getItem('token'))
-    const [user_id, setUser] = useState(localStorage.getItem('user_id'))
+    const [token, setToken] = useState(localStorage.getItem('token') || '')
+    const [user_id, setUser] = useState(localStorage.getItem('user_id') || '')
   }
 
   return (
