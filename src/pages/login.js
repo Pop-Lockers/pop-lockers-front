@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react"
+import React, { Component } from "react"
 import { Redirect } from "@reach/router"
 import { Form, FormGroup, Button, Label, Input } from "reactstrap"
 import Layout from "../components/Layout/Layout"

@@ -5,7 +5,8 @@ import popLockersAPI from "../api/poplockersAPI"
 import registerStyles from "../styles/register.module.css"
 import poplockersAPI from "../api/poplockersAPI"
 import { navigate } from "@reach/router"
-
+import { Link } from 'gatsby'
+import NewTeamForm from '../components/NewTeamForm/NewTeamForm'
 export default class Register extends Component {
   state = {
     username: "",
@@ -15,7 +16,7 @@ export default class Register extends Component {
     email: "",
     phone_number: "",
     team_id: "",
-    teams: [],
+    teams: []
   }
 
   async componentDidMount() {
@@ -131,6 +132,9 @@ export default class Register extends Component {
             />
           </FormGroup>
           <FormGroup>
+              <Button><Link to="/newTeam">Create New Team</Link></Button>
+          </FormGroup>
+          <FormGroup>
             <Label for="team_select">Select Team</Label>
             <Input
               onChange={this.handleSelectInputChange}
@@ -143,6 +147,7 @@ export default class Register extends Component {
               {this.renderTeamOptions()}
             </Input>
           </FormGroup>
+
           <Button type="submit">Submit</Button>
         </Form>
       </Layout>

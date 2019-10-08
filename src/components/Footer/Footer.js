@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <Navbar color="dark">
             <NavbarBrand >
-                <p className={footerStyles.footer}>Created For Chingu Voyage 11</p>
+                <p className>Created For Chingu Voyage 11</p>
             </NavbarBrand>
         </Navbar>
     )
