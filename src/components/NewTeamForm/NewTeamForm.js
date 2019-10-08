@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Form, FormGroup, Button, Label, Input } from "reactstrap"
 import popLockersAPI from '../../api/poplockersAPI'
-import { navigate } from 'gatsby'
+import { navigate } from '@reach/router'
 import newTeamFormStyles from './newTeam.module.css'
 export default class NewTeamForm extends Component {
 
@@ -28,7 +28,9 @@ export default class NewTeamForm extends Component {
             }
         }
         )
-        navigate('/register')
+        this.props.showTeamForm()
+        const response = await popLockersAPI.get("/teams")
+        this.props.setTeams(response)
     }
 
 

@@ -16,13 +16,19 @@ export default class Register extends Component {
     email: "",
     phone_number: "",
     team_id: "",
-    teams: []
+    teams: [],
+    showNewTeamForm: false
   }
 
   async componentDidMount() {
     const response = await poplockersAPI.get("/teams")
+    this.setTeams(response)
+  }
+
+
+  setTeams = (res) => {
     this.setState({
-      teams: response.data.teams,
+        teams: res.data.teams
     })
   }
 
@@ -32,6 +38,12 @@ export default class Register extends Component {
     this.setState({
       [name]: value,
     })
+  }
+
+  showTeamForm = () => {
+      this.setState((prevState) => ({
+        showNewTeamForm: !prevState.showNewTeamForm
+      }))
   }
 
   handleSelectInputChange = event => {
@@ -131,9 +143,7 @@ export default class Register extends Component {
               type="number"
             />
           </FormGroup>
-          <FormGroup>
-              <Button><Link to="/newTeam">Create New Team</Link></Button>
-          </FormGroup>
+
           <FormGroup>
             <Label for="team_select">Select Team</Label>
             <Input
@@ -150,6 +160,8 @@ export default class Register extends Component {
 
           <Button type="submit">Submit</Button>
         </Form>
+        <Button className={registerStyles.button} onClick={this.showTeamForm}>Create New Team</Button>
+        {this.state.showNewTeamForm ? <NewTeamForm showTeamForm={this.showTeamForm} setTeams={this.setTeams} /> : null}
       </Layout>
     )
   }

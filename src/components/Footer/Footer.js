@@ -5,7 +5,7 @@ import footerStyles from './footer.module.css'
 const Footer = () => {
     return (
         <Navbar color="dark">
-            <NavbarBrand >
+            <NavbarBrand className={true}>
                 <p className>Created For Chingu Voyage 11</p>
             </NavbarBrand>
         </Navbar>
