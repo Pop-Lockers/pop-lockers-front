@@ -7,8 +7,8 @@ const Layout = ({ children }) => {
   const [token, setToken] = useState('')
   const [user_id, setUser] = useState('')
   if (typeof window !== `undefined`) {
-    token = setToken(localStorage.getItem('token'))
-    user_id = setUser(localStorage.getItem('user_id'))
+    setToken(localStorage.getItem('token'))
+    setUser(localStorage.getItem('user_id'))
   }
   return (
     <div className={layoutStyles.layout}>
