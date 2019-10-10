@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { Component, Fragment } from "react"
+=======
+import React, { Component } from "react"
+>>>>>>> e7a7065bdafcae7809439566f029ce7d1869e307
 import { Redirect } from "@reach/router"
 import { Form, FormGroup, Button, Label, Input } from "reactstrap"
 import Layout from "../components/Layout/Layout"
@@ -41,7 +45,10 @@ class Login extends Component {
 
   renderFormOrRedirect = () => {
     const { token, user_id } = this.props
+<<<<<<< HEAD
     console.log(token, user_id)
+=======
+>>>>>>> e7a7065bdafcae7809439566f029ce7d1869e307
     if (token && user_id) {
       return <Redirect from="/login" to="/add-invoice" noThrow />
     } else {

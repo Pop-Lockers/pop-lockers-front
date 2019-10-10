@@ -24,7 +24,7 @@ const getValuesForPost = values => {
     drivers_license_number: driversLicenseNumber,
     license_state: driversLicenseState,
     plate_state: licensePlateState,
-    user_id: 1
+    user_id: localStorage.getItem('user_id')
   }
   return valuesForPost
 }
