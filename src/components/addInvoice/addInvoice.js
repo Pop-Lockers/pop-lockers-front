@@ -30,7 +30,7 @@ const AddInvoice = props => (
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           const valuesForPost = getValuesForPost(values);
           try {
-            await axios.post('http://localhost:5000/invoice/0', valuesForPost, axiosConfig)
+            await axios.post('https://pop-lockers.andrew-horn-portfolio.life/0', valuesForPost, axiosConfig)
           } catch (e) {
             console.log(e)
           }

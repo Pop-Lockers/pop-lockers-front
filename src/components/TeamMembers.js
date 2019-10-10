@@ -14,7 +14,7 @@ class TeamMembers extends React.Component {
   }
 
   fetchTeamMembers() {
-      fetch('http://localhost:5000/team/' + this.props.business_name)
+    fetch('https://pop-lockers.andrew-horn-portfolio.life/' + this.props.business_name)
         .then(resp => resp.json())
         .then(teamObj => {
           this.setState({
