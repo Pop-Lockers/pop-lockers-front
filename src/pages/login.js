@@ -5,6 +5,7 @@ import Layout from '../components/Layout/Layout'
 import popLockersAPI from '../api/poplockersAPI'
 import loginStyles from '../styles/login.module.css'
 import { LoginContext } from '../components/loginContext/loginContext'
+
 class Login extends Component {
   state = {
     username: '',
@@ -41,6 +42,8 @@ class Login extends Component {
 
   renderFormOrRedirect = () => {
     const { token, user_id } = this.props
+    console.log(token, user_id)
+
     if (token && user_id) {
       return <Redirect from='/login' to='/add-invoice' noThrow />
     } else {

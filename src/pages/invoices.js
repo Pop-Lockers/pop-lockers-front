@@ -4,28 +4,25 @@ import Invoice from "../components/invoice"
 import Layout from "../components/Layout/Layout"
 import { LoginContext } from "../components/loginContext/loginContext"
 import { Redirect } from "@reach/router"
-
+import popLockersApi from '../api/poplockersAPI'
 class Invoices extends Component {
   state = {
     invoices: [],
   }
-  componentDidMount() {
+async componentDidMount() {
     try {
-      fetch("http://127.0.0.1:5000/invoices").then(response => {
-        response.json().then(data => {
-          if (data.error) {
-            console.log(data.error)
+      const response = await popLockersApi.get('/invoices')
+          if (response.data.error) {
+            console.log(response.data.error)
           } else {
             this.setState({
-              invoices: data.invoices,
+              invoices: response.data.invoices,
             })
           }
-        })
-      })
-    } catch (e) {
-      console.log("Error loading data")
-    }
-  }
+        } catch {
+        }
+      }   
+
 
   renderInvoices = () => {
     const { token, user_id } = this.props

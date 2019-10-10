@@ -5,7 +5,7 @@ import popLockersAPI from "../api/poplockersAPI"
 import registerStyles from "../styles/register.module.css"
 import poplockersAPI from "../api/poplockersAPI"
 import { navigate } from "@reach/router"
-
+import NewTeamForm from '../components/NewTeamForm/NewTeamForm'
 export default class Register extends Component {
   state = {
     username: "",
@@ -16,12 +16,18 @@ export default class Register extends Component {
     phone_number: "",
     team_id: "",
     teams: [],
+    showNewTeamForm: false
   }
 
   async componentDidMount() {
     const response = await poplockersAPI.get("/teams")
+    this.setTeams(response)
+  }
+
+
+  setTeams = (res) => {
     this.setState({
-      teams: response.data.teams,
+        teams: res.data.teams
     })
   }
 
@@ -31,6 +37,12 @@ export default class Register extends Component {
     this.setState({
       [name]: value,
     })
+  }
+
+  showTeamForm = () => {
+      this.setState((prevState) => ({
+        showNewTeamForm: !prevState.showNewTeamForm
+      }))
   }
 
   handleSelectInputChange = event => {
@@ -130,6 +142,7 @@ export default class Register extends Component {
               type="number"
             />
           </FormGroup>
+
           <FormGroup>
             <Label for="team_select">Select Team</Label>
             <Input
@@ -143,8 +156,11 @@ export default class Register extends Component {
               {this.renderTeamOptions()}
             </Input>
           </FormGroup>
+
           <Button type="submit">Submit</Button>
         </Form>
+        <Button className={registerStyles.button} onClick={this.showTeamForm}>Create New Team</Button>
+        {this.state.showNewTeamForm ? <NewTeamForm showTeamForm={this.showTeamForm} setTeams={this.setTeams} /> : null}
       </Layout>
     )
   }
