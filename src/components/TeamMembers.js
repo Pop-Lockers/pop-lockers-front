@@ -13,15 +13,8 @@ class TeamMembers extends React.Component {
     this.fetchTeamMembers()
   }
 
-<<<<<<< HEAD
-  fetchTeamMembers() {
-    fetch('https://pop-lockers.andrew-horn-portfolio.life/' + this.props.business_name)
-        .then(resp => resp.json())
-        .then(teamObj => {
-=======
 async fetchTeamMembers() {
       const response = await poplockersAPI.get(`/team/${this.props.business_name}`)
->>>>>>> e7a7065bdafcae7809439566f029ce7d1869e307
           this.setState({
             businessName: response.data.business_name,
             location: response.data.location,
