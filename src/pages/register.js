@@ -5,7 +5,6 @@ import popLockersAPI from "../api/poplockersAPI"
 import registerStyles from "../styles/register.module.css"
 import poplockersAPI from "../api/poplockersAPI"
 import { navigate } from "@reach/router"
-import { Link } from 'gatsby'
 import NewTeamForm from '../components/NewTeamForm/NewTeamForm'
 export default class Register extends Component {
   state = {

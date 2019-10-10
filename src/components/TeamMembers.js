@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col, Table } from 'reactstrap';
-
+import poplockersAPI from '../api/poplockersAPI';
 class TeamMembers extends React.Component { 
   
   state = {
@@ -13,16 +13,14 @@ class TeamMembers extends React.Component {
     this.fetchTeamMembers()
   }
 
-  fetchTeamMembers() {
-      fetch('http://localhost:5000/team/' + this.props.business_name)
-        .then(resp => resp.json())
-        .then(teamObj => {
+async fetchTeamMembers() {
+      const response = await poplockersAPI.get(`/team/${this.props.business_name}`)
           this.setState({
-            businessName: teamObj.business_name,
-            location: teamObj.location,
-            users: teamObj.users
+            businessName: response.data.business_name,
+            location: response.data.location,
+            users: response.data.users
           })
-        })
+        
   }
 
   render() {
