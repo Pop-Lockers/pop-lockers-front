@@ -28,7 +28,7 @@ const AddInvoice = props => (
     onSubmit={async (values, { setSubmitting, resetForm }) => {
       const valuesForPost = getValuesForPost(values)
       try {
-        await popLockersAPI.post("invoice/", valuesForPost, axiosConfig)
+        await popLockersAPI.post("invoice/0", valuesForPost, axiosConfig)
       } catch (e) {
         console.log(e)
       }
